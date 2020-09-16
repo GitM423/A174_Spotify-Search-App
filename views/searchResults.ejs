@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title><%= title %></title>
+  </head>
+  <body id="search">
+    <%- include("./partials/header") %>
+    <section>
+      <h1 class="hero">Search for:<br /><%= search %></h1>
+      <div class="grid">
+        <% data.forEach(element => { %>
+        <article>
+          <div class="image">
+            <% if (element.images.length != 0) { %>
+            <img src="<%= element.images[0].url %> " alt="" />
+            <% } %>
+          </div>
+          <div class="info">
+            <h2><%= element.name %></h2>
+            <a href="/albums/<%= element.id %>">View Albums</a>
+          </div>
+        </article>
+        <% }) %>
+      </div>
+    </section>
+    <%- include("./partials/footer") %>
+  </body>
+</html>

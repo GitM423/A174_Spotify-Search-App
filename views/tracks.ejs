@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title><%= title %></title>
+  </head>
+  <body id="tracks">
+    <%- include("./partials/header") %>
+    <section>
+      <h1 class="hero"><%= title %></h1>
+      <% if (images.length != 0) { %>
+      <img src="<%= images[0].url %> " alt="" />
+      <% } %>
+      <div>
+        <% data.forEach(element => { %>
+        <article>
+          <h2><%= element.name %></h2>
+          <audio controls>
+            <source src="<%= element.preview_url %>" type="audio/mpeg" />
+          </audio>
+        </article>
+        <% }) %>
+      </div>
+    </section>
+    <%- include("./partials/footer") %>
+  </body>
+</html>
